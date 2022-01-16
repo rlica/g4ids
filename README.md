@@ -8,7 +8,6 @@ The present version represents a joint effort together with C. Sotty (KU Leuven,
 point a previous code developed by F. Rotaru (IFIN-HH). The geometries
 of the supporting frame and detectors were carefully defined, using CAD models and imported into Geant4 using CADMesh (https://github.com/christopherpoole/CADMesh) .
 
-##
 The main purpose of the code was to evaluate the detection efficiency of the
 IDS detectors, starting with the HPGe detectors. As the IDS system became more
 versatile, other detectors and implantation chambers were included in the simulations,
