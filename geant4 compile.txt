@@ -1,0 +1,24 @@
+For example with the B2 example,
+mkdir $HOME/buildB2
+cd buildB2
+cmake -DGeant4_DIR=$G4COMP $G4EXAMPLES/basic/B2
+make -j2 (make -j4)
+cd B2a
+./exampleB2a
+
+
+
+RUN from console:
+
+      /run/initialize
+Idle> /run/beamOn 100
+
+Invoke a Geant4 process and perform visualization with the VRML-Network driver. For example:
+       
+       Idle> /vis/open VRML2
+       Idle> /vis/drawVolume 
+       Idle> /vis/viewer/update
+             /vis/viewer/refresh
+
+       
+In step 4, 3D scene data are sent from the remote host to the local host as VRML-formatted data, and the VRML viewer specified in step 3 is invoked by the g4vrmlview process to visualize the VRML data. The transferred VRML data are saved as a file named g4.wrl in the current directory of the local host.

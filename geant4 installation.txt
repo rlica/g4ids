@@ -1,0 +1,16 @@
+Geant4-9.6.p03 installation
+
+1. Download tar-gnu geant4.9.6.p03
+2. Extract in Desktop, geant4.9.6.p03
+3. Create build folder geant4.9.6-build and navigate inside it
+4. Install prerequisites part 1: sudo apt-get install libclhep-dev clhep-doc gcc g++ cmake cmake-data cmake-dbg 
+5. Install prerequisites part 2: sudo apt-get install libexpat1-dev x11-common x11-apps libxmu-dev libx11-dev libxi-dev mesa-common-dev mesa-utils libgl1-mesa-dev fontconfig fontconfig-config zlib1g-dev freeglut3 freetype2-demos libxdmcp-dev libxdamage-dev libx11-dev libxau-dev libxp-dev libxp-dev libxmu-dev libxxf86vm-dev libdrm-dev libjpeg-dev libpng-dev libxcb1-dev libgl-dev libglu-dev libglw-dev libosmesa6-dev xorg-dev 
+6. cmake =DCMAKE_INSTALL_PREFIX=/usr/local -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_EXAMPLES=ON -DBUILD_SHARED_LIBS=ON -DBUILD_STATISTIC_LIBS=ON -DGEANT4_USE_QT=ON -DGEANT4_USE_RAYTRACER_X11=ON  /home/your_user_here/Desktop/geant4.9.6.p03
+7. make -j2 VERBOSE=1
+8. sudo make install
+
+------------------------------------------------------------------
+
+Geant4-9.6.p03 example runs - B3
+
+1. usr/local/share/Geant4-9.6.3/examples/basic/B3

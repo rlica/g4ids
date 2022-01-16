@@ -1,0 +1,18 @@
+INSTALL CADMESH from scratch:
+
+git clone https://github.com/christopherpoole/CADMesh.git
+
+cd CADMesh
+
+mkdir build
+
+cmake-gui 
+  - set only source to ~/CADMesh and build to ~/CADMesh/build
+  - configure (twice, everything default)
+  - generate
+
+cd build
+sudo make install (will download automatically ASSIMP and TETGEN)
+
+
+DONE :)

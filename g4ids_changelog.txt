@@ -1,0 +1,51 @@
+-----------------
+G4IDS CHANGE LOG 
+-----------------
+Thursday 13/11/2014 CS
+ - Modification of the CMakeList.txt to have cadmesh working
+ - Modification and creation of the detector construction classes in order to have a modular structure.
+   All the classes to accept a LaBr3 (Inventor design) have been implemented and are working.
+ - The root tree has been modified: one branch per energy. The multiplicity has been removed to simplify and identify the mistakes related to the filling of the root Tree.
+   The next step will be to include the multiplicities in the code.
+
+Thursday 27/11/2014 CS
+ - Including all the detector geometries
+ - ROOT Tree branches are ready to be used. There is one energy branch per detecting volume.
+ - The det_env of the clovers hav been reduced in order to have all the hits in the detectors. Otherwise the Union/Substaction tool (from) Geant4 is making a shitty job˙and there would be not hits in the detectors.
+ - Letś try to run a long rootfile to extract the efficiencies.
+
+Tuesday 02/12/2014 CS
+ - Test of photopeak efficiency. The discrepancy of around 20% is still there. There is the Poly and Tpiece in the geometry.
+   At 1.4 MeV, I obtained 2.65% instead of around 2.15% measured.
+ - I added a time estimator for the coffe break and to organize our work and tasks
+ - I am running currently the same type of tests with the implementation from F. Rotaru. There is the poly and Tpiece in the geometry.
+ - Maybe what we observed in terms of hits (with a bigger det_env) can maybe influence the results.
+   We should try to implement the geometries directly in the mother volume. In other terms without to use the det_env as F. Rotaru did.
+
+Monday 08/12/2014 CS
+ - Add of the list of Nist material available in Geant4 (./doc/Geant4MaterialDatabase.dat)   
+ - Add Tape constructor with the two layers (i.e. implantion and "rewinding" layers)
+ - For the LaBr3, I took the density that Gry Merete Tveten gave me.
+
+Thursday 19/02/2015
+ - After modifying the geometry we figured out that the efficiency obtained were not similar to what obtained in the 08/12/2014 version.
+   To be sure that we could reproduce the results of 08/12/2014 we run the code again. ---> We obtained proper results similar to what we obtained the 08/12/2014.
+ - We will try in the version we have now to keep all the technical upgrades we developped during the last weeks and inject the geometry as it was before in the version 08/12/2014.
+   Before we made a backup of the most recent version called 18022015_1950_CS_RL.
+
+Friday 31/08/2015 - G4IDS_RL
+ - IS530 Chamber, plastic and veto plastics are added. 
+ - The rest works very well, already tested Clover efficiencies with the IS530 chamber and plastic and compared with experimental values
+ - Veto plastic is not working yet, looking into it
+
+03/03/2016	- G4IDS_RL (tested on Linux - geant4.10.01.p02)
+ - With the new version of Geant4 segmentation faults started to appear when including clover detectors. 
+ - Changed the way transformations are taken into accont, and not declaring them as pointers. This solved the segfaults. Taken from here: http://geant4.web.cern.ch/geant4/UserDocumentation/Doxygen/examples_doc/html_transforms/html/DetectorConstruction_8cc_source.html
+ - Removed det_env from all detectors (clovers, labr, vetoPlastic). did not modify leuven side plastics and beta madrid
+ - VetoPlastic is working as a sensitive detector, tested and can be nicely seen in ROOT.
+ - Changed the way we can add radioactive sources, we can do it now directly from the config file, no need to edit the G4IDSPrimaryGenerator.cc. There is
+ also the possibility to add multiple sources (eg. several monoenergetic gammas and a beta source)
+ - In the /build/ folder, you have build-linux.sh and build-osx.sh that should take care of everything. Also CMakeLists.txt one level up has
+ sepparate versions for different systems (in my case it works with OSX and Linux). One should create a new CMakeLists.txt_X file and a build-X.sh 
+ file so that it will accomodate his system.
+ 
