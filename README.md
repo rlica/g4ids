@@ -4,8 +4,8 @@
 ##
 The G4IDS (Geant4 IDS) code was created for the IDS detection system
 as part of my PhD Thesis (https://cds.cern.ch/record/2292847?ln=en), based on the GEANT4 framework.
-The present version represents a joint effort together with Christophe Sotty (KU Leuven, IFIN-HH) and having as a starting
-point a previous code developed by Florin Rotaru (IFIN-HH). The geometries
+The present version represents a joint effort together with C. Sotty (KU Leuven, IFIN-HH) and having as a starting
+point a previous code developed by F. Rotaru (IFIN-HH). The geometries
 of the supporting frame and detectors were carefully defined, using CAD models and imported into Geant4 using CADMesh (https://github.com/christopherpoole/CADMesh) .
 
 ##
