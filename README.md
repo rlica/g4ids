@@ -3,7 +3,7 @@
  
  Created in 2014-2015 (R. Lica, C. Sotty)
 
-##
+## Overview
 The G4IDS (Geant4 IDS) code was developed for the IDS detection system
 as part of my [PhD Thesis](https://cds.cern.ch/record/2292847?ln=en), based on the GEANT4 framework.
 The present version represents a joint effort together with C. Sotty (KU Leuven, IFIN-HH) and having as a starting
