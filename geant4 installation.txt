@@ -1,16 +1,21 @@
-Geant4-9.6.p03 installation
+CentOS 7
 
-1. Download tar-gnu geant4.9.6.p03
-2. Extract in Desktop, geant4.9.6.p03
-3. Create build folder geant4.9.6-build and navigate inside it
-4. Install prerequisites part 1: sudo apt-get install libclhep-dev clhep-doc gcc g++ cmake cmake-data cmake-dbg 
-5. Install prerequisites part 2: sudo apt-get install libexpat1-dev x11-common x11-apps libxmu-dev libx11-dev libxi-dev mesa-common-dev mesa-utils libgl1-mesa-dev fontconfig fontconfig-config zlib1g-dev freeglut3 freetype2-demos libxdmcp-dev libxdamage-dev libx11-dev libxau-dev libxp-dev libxp-dev libxmu-dev libxxf86vm-dev libdrm-dev libjpeg-dev libpng-dev libxcb1-dev libgl-dev libglu-dev libglw-dev libosmesa6-dev xorg-dev 
-6. cmake =DCMAKE_INSTALL_PREFIX=/usr/local -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_EXAMPLES=ON -DBUILD_SHARED_LIBS=ON -DBUILD_STATISTIC_LIBS=ON -DGEANT4_USE_QT=ON -DGEANT4_USE_RAYTRACER_X11=ON  /home/your_user_here/Desktop/geant4.9.6.p03
-7. make -j2 VERBOSE=1
-8. sudo make install
+1. Install dependencies: 
+sudo yum install cmake cmake3 libXmu libXmu-devel qt-devel expat expat-devel centos-release-scl devtoolset-8
 
-------------------------------------------------------------------
+2. If 'cmake --version' is <3, then set cmake3 as default:
 
-Geant4-9.6.p03 example runs - B3
+sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake 10 --slave /usr/local/bin/ctest ctest /usr/bin/ctest --slave /usr/local/bin/cpack cpack /usr/bin/cpack --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake --family cmake
+sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake3 20 --slave /usr/local/bin/ctest ctest /usr/bin/ctest3 --slave /usr/local/bin/cpack cpack /usr/bin/cpack3 --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake3 --family cmake
 
-1. usr/local/share/Geant4-9.6.3/examples/basic/B3
+3. Download the Geant4 source and unpack, afterwards create two more directories. 
+
+[...]/geant4.10.04.p02             (source folder)
+[...]/geant4.10.04.p02-build       (build folder)
+[...]/geant4.10.04.p02-install     (install folder)
+
+4. Build and install Geant4
+cd [...]/geant4.10.04.p02-build 
+cmake -DCMAKE_INSTALL_PREFIX=[...]/geant4.10.04.p02-install -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_INSTALL_EXAMPLES=ON -DBUILD_SHARED_LIBS=ON -DBUILD_STATISTIC_LIBS=ON -DGEANT4_USE_QT=ON -DGEANT4_USE_RAYTRACER_X11=ON [...]/geant4.10.04.p02
+make -j8 VERBOSE=1
+make install
