@@ -1,9 +1,9 @@
-CentOS 7
 
 1. Install dependencies: 
-sudo yum install cmake cmake3 libXmu libXmu-devel qt-devel expat expat-devel centos-release-scl devtoolset-8
+CentOS 7: sudo yum install cmake cmake3 libXmu libXmu-devel qt-devel expat expat-devel centos-release-scl devtoolset-8 mesa-libGLw-devel
+Ubuntu 18: sudo apt install qt4-default qt4-dev-tools libxmu-dev
 
-2. If 'cmake --version' is <3, then set cmake3 as default:
+2. (CENTOS7) If 'cmake --version' is <3, then set cmake3 as default:
 
 sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake 10 --slave /usr/local/bin/ctest ctest /usr/bin/ctest --slave /usr/local/bin/cpack cpack /usr/bin/cpack --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake --family cmake
 sudo alternatives --install /usr/local/bin/cmake cmake /usr/bin/cmake3 20 --slave /usr/local/bin/ctest ctest /usr/bin/ctest3 --slave /usr/local/bin/cpack cpack /usr/bin/cpack3 --slave /usr/local/bin/ccmake ccmake /usr/bin/ccmake3 --family cmake

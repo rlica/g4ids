@@ -49,3 +49,6 @@ Friday 31/08/2015 - G4IDS_RL
  sepparate versions for different systems (in my case it works with OSX and Linux). One should create a new CMakeLists.txt_X file and a build-X.sh 
  file so that it will accomodate his system.
  
+25/01/2021 - G4IDS_RL 
+- created docker based on Ubuntu18 with: geant4.10.01.p02, root6.24 (cxx14), gcc7.5
+ 
